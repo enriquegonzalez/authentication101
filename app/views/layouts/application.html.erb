@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Freak</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <% if @user_id.blank? %>
+    <h1>Welcome!</h1>
+  <% else %>
+    <h1>Hello <%= User.find(@user_id).name %>!</h1>
+    <nav>
+      <%= link_to 'Home', root_url(:user_id => @user_id) %> |
+      <%= link_to 'Restaurants', pages_restaurants_url(:user_id => @user_id) %> |
+      <%= link_to 'Activites', pages_activities_url(:user_id => @user_id) %> |
+      <%= link_to 'Logout', root_url %>
+    </nav>
+  <% end %>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<h1>Restaurants</h1>
+
+<%= form_tag '/restaurants' do %>
+
+  <%= label_tag :name, "Add Restaurant:" %>
+  <%= text_field_tag :name %>
+  <%= hidden_field_tag :user_id, @user_id %>
+  <%= submit_tag "Add" %>
+  
+<% end %>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li><%= restaurant.name %></li>
+  <% end %>
+</ul>

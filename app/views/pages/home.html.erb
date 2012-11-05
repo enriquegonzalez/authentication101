@@ -1,0 +1,13 @@
+<% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+
+<% if @user_id.blank? %>
+  <%= form_tag '/login' do %>
+  
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+    <%= submit_tag "Login!" %>
+  
+  <% end %>
+<% end %>
